@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+aside {
+  z-index: 100; /* Ensure the aside has a higher stacking context */
+}
+
+.group > span {
+  z-index: 101; /* Increase tooltip z-index to appear above the sticky div */
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark theme colors (default) */
+  --bg-primary: #121416;
+  --bg-secondary: #171717;
+  --bg-tertiary: #181c22;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --accent-primary: #10b981;
+  --accent-secondary: #34d399;
+  --accent-bg: #147e61;
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --border-custom: rgba(255, 255, 255, 0.12);
+  --hover-bg: #334155;
+  --ring-color: #334155;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="light"] {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --accent-primary: #059669;
+  --accent-secondary: #10b981;
+  --accent-bg: #d1fae5;
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --border-custom: #e2e8f0;
+  --hover-bg: #f1f5f9;
+  --ring-color: #e2e8f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.bg-primary {
+  background-color: var(--bg-primary);
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+.bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+.text-primary {
+  color: var(--text-primary);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+.text-accent {
+  color: var(--accent-primary);
+}
+.text-accent-secondary {
+  color: var(--accent-secondary);
+}
+.bg-accent {
+  background-color: var(--accent-bg);
+}
+.border-primary {
+  border-color: var(--border-primary);
+}
+.border-secondary {
+  border-color: var(--border-secondary);
+}
+.border-custom {
+  border-color: var(--border-custom);
+}
+.hover-bg:hover {
+  background-color: var(--hover-bg);
+}
+.ring-primary {
+  --tw-ring-color: var(--ring-color);
 }
