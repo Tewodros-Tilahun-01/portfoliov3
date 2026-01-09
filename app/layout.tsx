@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import MobileNav from "../components/MobileNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="min-h-dvh relative text-primary  cursor-crosshair">
+          <video
+            className="fixed top-0 left-0 w-full h-full opacity-100  object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="../videos/r-video-01-1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <MobileNav />
+
+          {children}
+        </div>
       </body>
     </html>
   );
