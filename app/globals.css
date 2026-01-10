@@ -28,6 +28,9 @@ aside {
   --border-custom: rgba(255, 255, 255, 0.12);
   --hover-bg: #334155;
   --ring-color: #334155;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.35);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.55);
+  --scrollbar-track: transparent;
 }
 
 [data-theme="light"] {
@@ -46,6 +49,9 @@ aside {
   --border-custom: #e2e8f0;
   --hover-bg: #f1f5f9;
   --ring-color: #e2e8f0;
+  --scrollbar-thumb: rgba(15, 23, 42, 0.35);
+  --scrollbar-thumb-hover: rgba(15, 23, 42, 0.55);
+  --scrollbar-track: transparent;
 }
 
 .bg-primary {
@@ -89,4 +95,27 @@ aside {
 }
 .ring-primary {
   --tw-ring-color: var(--ring-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }

@@ -63,9 +63,9 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={link.name}
-                    className="size-10 grid place-items-center rounded-full bg-tertiary text-primary transition-colors hover:bg-primary  hover:text-secondary "
+                    className="size-10 grid place-items-center rounded-2xl ring ring-gray-400  transition-colors hover:bg-primary  hover:text-secondary "
                   >
-                    <Icon className="size-5" />
+                    <Icon className="size-5" fill="#fff" stroke="#fff" />
                   </a>
                 );
               })}
