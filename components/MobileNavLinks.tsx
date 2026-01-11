@@ -1,4 +1,5 @@
 const NAV_LINKS = [
+  { href: "#", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#resume", label: "Resume" },
   { href: "#stacks", label: "Stacks" },

@@ -19,6 +19,7 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 import type { ReactNode } from "react";
+import { Code } from "lucide-react";
 
 type Skill = {
   name: string;
@@ -130,14 +131,16 @@ function CircularStat({ name, percent, icon, color }: Skill) {
   return (
     <Card className="aspect-square p-0">
       <div className="h-full w-full flex flex-col items-center justify-center gap-1">
-        <div className="relative size-20">
+        <div className="relative size-16">
           <div className="absolute inset-0 rounded-full" style={ring} />
           <div
-            className="absolute inset-1 rounded-full bg-tertiary flex flex-col justify-center items-center"
+            className="absolute inset-1 p-2 rounded-full bg-tertiary flex flex-col justify-center items-center"
             style={{ color: color }}
           >
             {icon}
-            <div className="text-sm text-primary">{percent}%</div>
+            <div className="text-xs text-primary relative top-1">
+              {percent}%
+            </div>
           </div>
         </div>
         <div className="text-sm text-primary sm:mt-2">{name}</div>
@@ -170,7 +173,9 @@ function SectionBadge({ children }: { children: string }) {
   return (
     <div className="mb-1 flex items-center gap-3">
       <Badge>
-        <span>⚙️</span>
+        <span>
+          <Code size={22} />
+        </span>
         <span className="text-xl uppercase">{children}</span>
       </Badge>
     </div>
@@ -220,10 +225,14 @@ function LanguageRow({ name, percent, flag }: Language) {
 
 function StackSection() {
   return (
-    <section className="px-2 sm:px-4 md:px-6 py-2 sm:py-8 md:py-8" id="stacks">
+    <section
+      className="px-4 sm:px-4 md:px-15 py-2 sm:py-8 md:py-8 pt-4"
+      id="stacks"
+    >
       <div className="mt-10">
         <SectionBadge>tech Stack</SectionBadge>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <br />
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
           {toolStack.map((s) => (
             <CircularStat key={s.name} {...s} />
           ))}
@@ -231,7 +240,7 @@ function StackSection() {
       </div>
 
       <div className="mt-10">
-        <SectionBadge>General Skills</SectionBadge>
+        <Badge>General Skills</Badge>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {generalSkills.map((s) => (
             <SmallCircular key={s.name} {...s} />
@@ -240,7 +249,7 @@ function StackSection() {
       </div>
 
       <div className="mt-10">
-        <SectionBadge>Languages</SectionBadge>
+        <Badge>Languages</Badge>
         <div className="bg-transparent border-none">
           {languages.map((l) => (
             <LanguageRow key={l.name} {...l} />

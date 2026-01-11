@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, FolderGit2 } from "lucide-react";
 import Image from "next/image";
 
 type Project = {
@@ -193,10 +193,15 @@ export default function ProjectsSection() {
   }, [filter]);
 
   return (
-    <section className="px-4 sm:px-12 md:px-16 py-4 " id="projects">
+    <section
+      className="px-6 sm:px-12 md:px-16 py-4 lg:pt-14 pt-12"
+      id="projects"
+    >
       <div className="mb-4">
         <Badge>
-          <span>🧰</span>
+          <span>
+            <FolderGit2 size={22} />
+          </span>
           <span>Projects</span>
         </Badge>
       </div>
@@ -215,7 +220,7 @@ export default function ProjectsSection() {
         ))}
       </div>
 
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2  gap-x-10 gap-y-4">
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2  gap-x-10 gap-y-4">
         {filtered.map((p, i) => (
           <div
             key={p.id}

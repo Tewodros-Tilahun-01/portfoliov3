@@ -138,7 +138,7 @@ function InfoCard({
 
 export default function ResumeSection() {
   return (
-    <section className="px-6 sm:px-12 md:px-10 py-4 pt-12" id="resume">
+    <section className="px-2 sm:px-12 md:px-10 py-4 pt-12" id="resume">
       <div className="md:mb-6">
         <Badge>
           <span>
@@ -166,7 +166,7 @@ export default function ResumeSection() {
               </Badge>
             </div>
             <div className="flex">
-              <div className="min-h-full w-0.5 my-6  rounded-full bg-divider mr-4"></div>
+              <div className="min-h-full w-0.5 mt-6  rounded-full bg-divider mr-4"></div>
               <div className="grid flex-1 gap-6">
                 {courses.map((c, i) => (
                   <InfoCard key={i} item={c} icon="course" />
@@ -185,8 +185,8 @@ export default function ResumeSection() {
                 <span>Education</span>
               </Badge>
             </div>
-            <div className="flex ml-5">
-              <div className="min-h-full w-0.5 my-6  rounded-full bg-divider mr-4"></div>
+            <div className="flex lg:ml-5">
+              <div className="min-h-full w-0.5 mt-6  rounded-full bg-divider mr-4"></div>
 
               <div className="grid flex-1 gap-6 ">
                 {education.map((e, i) => (

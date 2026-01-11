@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/animations";
 function HeroSection() {
   return (
     <section
-      className="sm:px-8 py-5 md:py-12 pb-0 space-y-4 sm:space-y-7 mt-5"
+      className="sm:px-8 py-5 md:py-12  space-y-4 sm:space-y-7 pt-12 pb-8"
       id="about"
     >
       <div>
@@ -39,7 +39,7 @@ function HeroSection() {
       <LineByLineReveal
         delay={1}
         staggerDelay={0.04}
-        className="text-sm sm:text-base md:text-lg text-secondary max-w-2xl"
+        className="text-base md:text-lg text-secondary max-w-2xl"
       >
         Have worked in a variety of positions, including as frontend and
         backend. Strong engineering background combined with closely working

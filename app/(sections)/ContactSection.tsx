@@ -11,7 +11,7 @@ function InfoCard({
   value: string;
 }) {
   return (
-    <div className="rounded-2xl bg-secondary  p-6 flex items-center justify-between gap-6 bg-card border border-custom">
+    <div className="rounded-2xl p-6 flex items-center justify-between gap-6 bg-card border border-custom bg-gradient-to-br from-[rgba(var(--card-gradient),0.04)] to-[rgba(var(--card-gradient),0.0)]">
       <div className="flex items-center gap-4">
         <div className="size-12 grid place-items-center rounded-xl bg-card border border-custom text-accent">
           {icon}
@@ -25,10 +25,15 @@ function InfoCard({
 
 export default function ContactSection() {
   return (
-    <section className="px-2 sm:px-4 md:px-6 py-10" id="contact">
+    <section
+      className="px-6 sm:px-4 md:px-6 py-10 lg:pt-14 lg:px-14"
+      id="contact"
+    >
       <div className="mb-4">
         <span className="inline-flex items-center gap-2 text-lg tracking-wider uppercase bg-card border border-custom text-secondary px-3 py-1 rounded-full">
-          <span className="text-2xl">✉️</span>
+          <span className="text-2xl">
+            <Mail size={24} />
+          </span>
           <span>Contact</span>
         </span>
       </div>
