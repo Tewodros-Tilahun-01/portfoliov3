@@ -128,7 +128,7 @@ function CircularStat({ name, percent, icon, color }: Skill) {
     }deg, transparent 0)`,
   } as const;
   return (
-    <Card className="aspect-square p-0 shadow-lg">
+    <Card className="aspect-square p-0">
       <div className="h-full w-full flex flex-col items-center justify-center gap-1">
         <div className="relative size-20">
           <div className="absolute inset-0 rounded-full" style={ring} />
@@ -203,14 +203,14 @@ function DotsProgress({
 
 function LanguageRow({ name, percent, flag }: Language) {
   return (
-    <div className="grid grid-cols-4 place-content-center px-2 gap-8 py-1 w-full">
+    <div className="flex  justify-between items-center px-2 gap-8 py-1 w-full max-w-md">
       <div className="flex items-center gap-4">
         <div className="grid place-items-center size-10 rounded-xl text-lg">
           <span aria-hidden>{flag}</span>
         </div>
         <div className="text-primary">{name}</div>
       </div>
-      <div className="flex items-center md:gap-2 col-span-2">
+      <div className="flex items-center  gap-2 col-span-2">
         <DotsProgress percent={percent} />
         <div className="w-10 text-right text-secondary text-sm">{percent}%</div>
       </div>
@@ -241,11 +241,11 @@ function StackSection() {
 
       <div className="mt-10">
         <SectionBadge>Languages</SectionBadge>
-        <Card className="bg-transparent border-none">
+        <div className="bg-transparent border-none">
           {languages.map((l) => (
             <LanguageRow key={l.name} {...l} />
           ))}
-        </Card>
+        </div>
       </div>
     </section>
   );

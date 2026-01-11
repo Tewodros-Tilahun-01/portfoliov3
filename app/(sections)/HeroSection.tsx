@@ -1,28 +1,54 @@
 import StatsRow from "@/components/StatsRow";
+import LineByLineReveal from "../../components/animations/LineByLineReveal";
+import { TextReveal } from "@/components/animations";
 
 function HeroSection() {
   return (
-    <section className="px-8 py-5 md:py-12 pb-0" id="about">
-      <p className="text-secondary">
-        Hello, I'm <span className="text-accent">software engineer</span>
-      </p>
-      <h1 className="mt-4 text-xl md:text-3xl lg:text-6xl  font-extrabold leading-tight capitalize ">
-        Full Stack and Mobile app developer
-        <span className="mx-2 transform -skew-y-2 mt-1 inline-block rounded-full bg-accent px-3 py-1 text-black">
-          React Scientist
-        </span>
-        Based in
-      </h1>
-      <h2 className="text-md md:text-3xl lg:text-6xl font-extrabold">
-        Addis Abeba
-      </h2>
+    <section
+      className="sm:px-8 py-5 md:py-12 pb-0 space-y-4 sm:space-y-7 mt-5"
+      id="about"
+    >
+      <div>
+        <LineByLineReveal
+          delay={0.2}
+          staggerDelay={0.09}
+          className="text-primary text-lg sm:text-xl md:text-2xl"
+        >
+          Hello, I'm
+        </LineByLineReveal>{" "}
+        <LineByLineReveal
+          insideClass="text-[#78cc6d]"
+          delay={0.4}
+          staggerDelay={0.09}
+          className="text-primary text-lg sm:text-xl md:text-2xl text-[#78cc6d] "
+        >
+          software engineer
+        </LineByLineReveal>
+      </div>
 
-      <p className="mt-6 max-w- text-white">
+      <TextReveal>
+        <h1 className="text-2xl md:text-3xl lg:text-[56px] font-heading font-medium lg:leading-tight leading-loose capitalize ">
+          Full Stack developer And
+          <span className="mx-2 transform -skew-y-2 text-xl md:text-2xl lg:text-[48px] relative right-1  inline-block capitalize rounded-full bg-[#78cc6d] px-3 py-1 text-black">
+            React Scientist
+          </span>
+          Based in Ethiopia, Addis Abeba .
+        </h1>
+      </TextReveal>
+
+      <LineByLineReveal
+        delay={1}
+        staggerDelay={0.04}
+        className="text-sm sm:text-base md:text-lg text-secondary max-w-2xl"
+      >
         Have worked in a variety of positions, including as frontend and
         backend. Strong engineering background combined with closely working
         with business customers.
-      </p>
-      <StatsRow />
+      </LineByLineReveal>
+
+      <div className="">
+        <StatsRow />
+      </div>
     </section>
   );
 }

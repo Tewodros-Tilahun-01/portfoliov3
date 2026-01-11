@@ -11,9 +11,9 @@ function InfoCard({
   value: string;
 }) {
   return (
-    <div className="rounded-2xl bg-secondary  p-6 flex items-center justify-between gap-6 bg-[#1a1a1a] border border-custom">
+    <div className="rounded-2xl bg-secondary  p-6 flex items-center justify-between gap-6 bg-card border border-custom">
       <div className="flex items-center gap-4">
-        <div className="size-12 grid place-items-center rounded-xl bg-[#1a1a1a] border border-custom text-accent">
+        <div className="size-12 grid place-items-center rounded-xl bg-card border border-custom text-accent">
           {icon}
         </div>
         <div className="text-primary text-lg">{label}</div>
@@ -27,7 +27,7 @@ export default function ContactSection() {
   return (
     <section className="px-2 sm:px-4 md:px-6 py-10" id="contact">
       <div className="mb-4">
-        <span className="inline-flex items-center gap-2 text-lg tracking-wider uppercase bg-[#1a1a1a] border border-custom text-secondary px-3 py-1 rounded-full">
+        <span className="inline-flex items-center gap-2 text-lg tracking-wider uppercase bg-card border border-custom text-secondary px-3 py-1 rounded-full">
           <span className="text-2xl">✉️</span>
           <span>Contact</span>
         </span>
@@ -65,18 +65,18 @@ export default function ContactSection() {
         <input
           type="text"
           placeholder="Full Name"
-          className="h-12 w-full rounded-xl bg-[#1a1a1a] border border-custom  px-4 text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
+          className="h-12 w-full rounded-xl bg-card border border-custom  px-4 text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
         />
         <input
           type="email"
           placeholder="Email Address"
-          className="h-12 w-full rounded-xl bg-[#1a1a1a] border border-custom px-4 text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
+          className="h-12 w-full rounded-xl bg-card border border-custom px-4 text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
         />
         <div className="md:col-span-2">
           <textarea
             placeholder="Your Message"
             rows={6}
-            className="w-full rounded-xl bg-[#1a1a1a] border border-custom  px-4 py-3 text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full rounded-xl bg-card border border-custom  px-4 py-3 text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
           />
         </div>
         <div className="md:col-span-2">

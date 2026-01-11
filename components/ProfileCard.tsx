@@ -37,12 +37,12 @@ const socialLinks = [
 
 function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
   return (
-    <div className="lg:sticky lg:top-8.5 max-h-min ">
-      <div className="sm:rounded-3xl sm:rounded-tr-none rounded-none bg-secondary flex flex-col justify-between  ring-1 ring-primary w-full overflow-hidden max-h-min lg:min-h-[calc(100vh-60px)] bg-[linear-gradient(120deg,_rgba(255,255,255,0.08),_rgba(255,255,255,0))]">
-        <div className="py-7 px-12">
+    <div className="lg:sticky lg:top-8.5 max-h-min">
+      <div className="sm:rounded-3xl sm:rounded-tr-none pt-10 md:pt-0 rounded-none bg-secondary flex flex-col justify-between  ring-1 ring-primary w-full overflow-hidden max-h-min lg:min-h-[calc(100vh-50px)] bg-[linear-gradient(120deg,_rgba(255,255,255,0.08),_rgba(255,255,255,0))]">
+        <div className="py-7 md:px-10 px-4">
           <FadeInView
-            delay={0.4}
-            className="rounded-4xl rounded-tr-none  overflow-hidden bg-tertiary h-70 w-70 grid place-items-center relative"
+            delay={0.2}
+            className="rounded-4xl mx-auto rounded-tr-none  overflow-hidden bg-tertiary md:h-70 md:w-70 h-75 w-80 grid place-items-center relative"
           >
             {avatarUrl ? (
               <Image
@@ -61,10 +61,10 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
           </FadeInView>
 
           <div className=" text-center space-y-5 mt-5">
-            <TextReveal delay={0.6}>
+            <TextReveal delay={0.3}>
               <div className="text-submark uppercase ">{title}</div>
             </TextReveal>
-            <TextReveal delay={0.8}>
+            <TextReveal delay={0.3}>
               <h3 className=" text-2xl font-semibold ">{name}</h3>
             </TextReveal>
 
@@ -85,7 +85,7 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
                         title={link.name}
                         className="size-10 grid place-items-center rounded-2xl ring ring-gray-400  transition-colors hover:bg-primary  hover:text-secondary "
                       >
-                        <Icon className="size-5" fill="#fff" stroke="#fff" />
+                        <Icon className="size-5 fill-[var(--icon-color)] stroke-[var(--icon-color)]" />
                       </a>
                     </ScaleOnTap>
                   </StaggerItem>
@@ -96,7 +96,7 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
         </div>
 
         <div
-          className="
+          className="     
   relative
   before:content-['']
   before:absolute
@@ -104,11 +104,11 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
   before:top-0
   before:w-full
   before:h-px
-  before:bg-[radial-gradient(ellipse_at_center,_#ddd_0%,_rgba(255,255,255,0)_70%)]
+  before:bg-[radial-gradient(ellipse_at_center,_rgb(var(--line-color))_0%,_rgba(255,255,255,0)_70%)]
 "
         >
           <FadeInView
-            delay={1}
+            delay={0.8}
             className="flex justify-center py-8   mx-auto  border-gray-100 divide-x"
           >
             <ScaleOnTap>

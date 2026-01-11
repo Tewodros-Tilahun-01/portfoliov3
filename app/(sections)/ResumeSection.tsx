@@ -1,6 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Building2, Landmark } from "lucide-react";
+import {
+  BookOpenText,
+  Briefcase,
+  Building2,
+  Landmark,
+  SchoolIcon,
+} from "lucide-react";
 
 type TimelineItem = {
   title: string;
@@ -17,7 +23,7 @@ const experience: TimelineItem[] = [
     location: "Gondar",
     range: "07/2024 – 10/2024",
     summary:
-      "Built user interfaces for seamless appointment booking, focusing on accessibility and user experience",
+      "Built user interfaces for seamless appointment booking, focusing on accessibility and user experience with scalable, responsive design principles",
   },
   {
     title: "Freelance",
@@ -71,10 +77,6 @@ const education: SimpleCard[] = [
   },
 ];
 
-function Dot() {
-  return <span className="block size-2 rounded-full bg-accent" />;
-}
-
 function TimelineColumn({
   items,
   align,
@@ -91,9 +93,10 @@ function TimelineColumn({
             key={idx}
             className={align === "left" ? "order-1" : "order-2 md:col-start-2"}
           >
-            <div className="text-sm text-accent mb-2">{it.range}</div>
+            <div className="rounded-lg text-tertiary mb-2  px-2 py-1 border border-gray-600 max-w-min text-nowrap text-xs ">
+              {it.range}
+            </div>
             <div className="flex items-center gap-3">
-              <Dot />
               <h3 className="text-xl font-semibold text-primary">{it.title}</h3>
             </div>
             <div className="mt-2 text-xs uppercase tracking-wide text-tertiary">
@@ -115,33 +118,33 @@ function InfoCard({
   icon: "course" | "edu";
 }) {
   return (
-    <Card className="p-6 ">
-      <div className="text-[11px] uppercase tracking-wider text-tertiary">
+    <Card className="p-6 relative">
+      <span className="absolute -left-[23px] top-6 rounded-full bg-gray-600 w-2.5 h-2.5"></span>
+      <div className="rounded-lg text-tertiary mb-2  px-2 py-1 border border-gray-500 max-w-min text-nowrap text-xs  ">
         {item.range}
       </div>
       <div className="mt-2 flex items-center justify-between">
-        <h4 className="text-lg font-semibold text-primary">{item.title}</h4>
-        <span className="opacity-70">
-          {icon === "course" ? (
-            <Building2 className="size-8" />
-          ) : (
-            <Landmark className="size-8" />
-          )}
-        </span>
+        <h4 className="text-lg font-semibold text-primary capitalize">
+          {item.title}
+        </h4>
       </div>
       <div className="text-sm text-secondary mt-1">{item.subtitle}</div>
-      <p className="mt-4 text-secondary leading-relaxed">{item.body}</p>
+      <p className="mt-4 text-secondary leading-relaxed line-clamp-4">
+        {item.body}
+      </p>
     </Card>
   );
 }
 
 export default function ResumeSection() {
   return (
-    <section className="px-6 sm:px-12 md:px-16 py-4" id="resume">
+    <section className="px-6 sm:px-12 md:px-10 py-4 pt-12" id="resume">
       <div className="md:mb-6">
         <Badge>
-          <span>💼</span>
-          <span>Resume</span>
+          <span>
+            <Briefcase size={22} />
+          </span>
+          <span className="text-primary">Resume</span>
         </Badge>
       </div>
       <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-primary">
@@ -151,33 +154,46 @@ export default function ResumeSection() {
       <div className="mt-10">
         <TimelineColumn items={experience} align="left" />
       </div>
-
-      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div>
-          <div className="mb-4">
-            <Badge>
-              <span>📚</span>
-              <span>Courses</span>
-            </Badge>
-          </div>
-          <div className="grid gap-6">
-            {courses.map((c, i) => (
-              <InfoCard key={i} item={c} icon="course" />
-            ))}
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+        <div className="mt-12 grid grid-cols-1  gap-6">
+          <div>
+            <div className="mb-4">
+              <Badge>
+                <span>
+                  <Building2 className="size-6" />
+                </span>
+                <span className="text-primary">Courses</span>
+              </Badge>
+            </div>
+            <div className="flex">
+              <div className="min-h-full w-0.5 my-6  rounded-full bg-divider mr-4"></div>
+              <div className="grid flex-1 gap-6">
+                {courses.map((c, i) => (
+                  <InfoCard key={i} item={c} icon="course" />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
+        <div className="mt-12 grid grid-cols-1  gap-6">
+          <div>
+            <div className="mb-4">
+              <Badge>
+                <span>
+                  <Landmark className="size-6" />
+                </span>
+                <span>Education</span>
+              </Badge>
+            </div>
+            <div className="flex ml-5">
+              <div className="min-h-full w-0.5 my-6  rounded-full bg-divider mr-4"></div>
 
-        <div>
-          <div className="mb-4">
-            <Badge>
-              <span>🏛️</span>
-              <span>Education</span>
-            </Badge>
-          </div>
-          <div className="grid gap-6">
-            {education.map((e, i) => (
-              <InfoCard key={i} item={e} icon="edu" />
-            ))}
+              <div className="grid flex-1 gap-6 ">
+                {education.map((e, i) => (
+                  <InfoCard key={i} item={e} icon="edu" />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

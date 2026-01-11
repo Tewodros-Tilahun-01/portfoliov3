@@ -14,13 +14,13 @@ function Sidebar() {
   ];
 
   return (
-    <aside className="hidden max-w-10 mx-4 md:flex gap-y-4 flex-col justify-center max-h-min items-center pt-4 sticky top-24">
+    <aside className="hidden max-w-10 mx-3 md:flex gap-y-4 flex-col justify-center max-h-min items-center pt-4 sticky top-24">
       <FadeInView delay={0.1}>
         <ThemeToggle />
       </FadeInView>
 
       <StaggerContainer
-        className="flex flex-col items-center gap-4 py-5 rounded-full bg-secondary p-2 shadow-lg ring-1 ring-primary max-h-min"
+        className="flex flex-col items-center gap-4 py-5 rounded-full bg-primary p-2 shadow-lg ring-1 ring-primary max-h-min"
         staggerDelay={0.2}
       >
         {items.map((item) => (
@@ -28,7 +28,7 @@ function Sidebar() {
             <a
               aria-label={item.label}
               href={item.id}
-              className="size-12 grid place-items-center rounded-full  text-secondary bg-[#ffffff08]  transition-colors"
+              className="size-12 grid place-items-center rounded-full  text-primary bg-[#ffffff08]  transition-colors"
             >
               <span className="group-hover:text-green-400">{item.icon}</span>
             </a>

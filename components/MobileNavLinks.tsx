@@ -13,7 +13,7 @@ export default function MobileNavLinks() {
         <li key={l.href}>
           <a
             href={l.href}
-            className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors"
+            className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors "
           >
             {l.label}
           </a>

@@ -5,7 +5,10 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...props}
-      className={cn("rounded-3xl bg-[#1a1a1a] border border-custom", className)}
+      className={cn(
+        "rounded-3xl bg-card bg-gradient-to-br from-[rgba(var(--card-gradient),0.04)] to-[rgba(var(--card-gradient),0.0)] border border-custom",
+        className
+      )}
     />
   );
 }
