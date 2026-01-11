@@ -1,4 +1,10 @@
 import { GitHubIcon, LinkedInIcon, TelegramIcon, LeetCodeIcon } from "./icons";
+import FadeInView from "./animations/FadeInView";
+import StaggerContainer from "./animations/StaggerContainer";
+import StaggerItem from "./animations/StaggerItem";
+import ScaleOnTap from "./animations/ScaleOnHover";
+import TextReveal from "./animations/TextReveal";
+import Image from "next/image";
 
 interface ProfileCardProps {
   name: string;
@@ -31,63 +37,100 @@ const socialLinks = [
 
 function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
   return (
-    <div className="lg:sticky lg:top-12 max-h-min">
-      <div className="sm:rounded-3xl rounded-none bg-secondary ring-1 ring-primary w-full overflow-hidden max-h-min">
-        <div className="p-7">
-          <div className="sm:rounded-2xl overflow-hidden bg-tertiary h-72 grid place-items-center">
+    <div className="lg:sticky lg:top-8.5 max-h-min ">
+      <div className="sm:rounded-3xl sm:rounded-tr-none rounded-none bg-secondary flex flex-col justify-between  ring-1 ring-primary w-full overflow-hidden max-h-min lg:min-h-[calc(100vh-60px)] bg-[linear-gradient(120deg,_rgba(255,255,255,0.08),_rgba(255,255,255,0))]">
+        <div className="py-7 px-12">
+          <FadeInView
+            delay={0.4}
+            className="rounded-4xl rounded-tr-none  overflow-hidden bg-tertiary h-70 w-70 grid place-items-center relative"
+          >
             {avatarUrl ? (
-              <img
+              <Image
                 src={avatarUrl}
                 alt={name}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             ) : (
               <div className="text-tertiary">Avatar</div>
             )}
-          </div>
+          </FadeInView>
 
-          <div className="mt-8 text-center">
-            <div className="text-xs tracking-[0.2em] text-tertiary">
-              {title}
-            </div>
-            <h3 className="mt-3 text-2xl font-semibold">{name}</h3>
+          <div className=" text-center space-y-5 mt-5">
+            <TextReveal delay={0.6}>
+              <div className="text-submark uppercase ">{title}</div>
+            </TextReveal>
+            <TextReveal delay={0.8}>
+              <h3 className=" text-2xl font-semibold ">{name}</h3>
+            </TextReveal>
 
-            <div className="mt-5 flex justify-center gap-3">
+            <StaggerContainer
+              className=" flex justify-center gap-3"
+              staggerDelay={0.2}
+            >
               {socialLinks.map((link, i) => {
                 const Icon = link.icon;
 
                 return (
-                  <a
-                    key={i}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={link.name}
-                    className="size-10 grid place-items-center rounded-2xl ring ring-gray-400  transition-colors hover:bg-primary  hover:text-secondary "
-                  >
-                    <Icon className="size-5" fill="#fff" stroke="#fff" />
-                  </a>
+                  <StaggerItem key={i}>
+                    <ScaleOnTap>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={link.name}
+                        className="size-10 grid place-items-center rounded-2xl ring ring-gray-400  transition-colors hover:bg-primary  hover:text-secondary "
+                      >
+                        <Icon className="size-5" fill="#fff" stroke="#fff" />
+                      </a>
+                    </ScaleOnTap>
+                  </StaggerItem>
                 );
               })}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 divide-x divide-primary">
-          <a
-            className="p-5 text-center hover-bg transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://drive.google.com/file/d/1xSeDYIhc_8G59-gOrb_DsHl5zxDJf8HL/view?usp=sharing"
+        <div
+          className="
+  relative
+  before:content-['']
+  before:absolute
+  before:left-0
+  before:top-0
+  before:w-full
+  before:h-px
+  before:bg-[radial-gradient(ellipse_at_center,_#ddd_0%,_rgba(255,255,255,0)_70%)]
+"
+        >
+          <FadeInView
+            delay={1}
+            className="flex justify-center py-8   mx-auto  border-gray-100 divide-x"
           >
-            Download CV
-          </a>
-          <a
-            className="p-5 text-center hover-bg transition-colors"
-            href="#contact"
-          >
-            Contact Me
-          </a>
+            <ScaleOnTap>
+              <a
+                className="p-5 text-center hover:text-green-300 transition-colors font-semibold"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://drive.google.com/file/d/1xSeDYIhc_8G59-gOrb_DsHl5zxDJf8HL/view?usp=sharing"
+              >
+                Download CV
+              </a>
+            </ScaleOnTap>
+
+            <ScaleOnTap>
+              <a
+                className="p-5 text-center hover:text-green-300 transition-colors font-semibold"
+                href="#contact"
+              >
+                Contact Me
+              </a>
+            </ScaleOnTap>
+          </FadeInView>
         </div>
       </div>
     </div>

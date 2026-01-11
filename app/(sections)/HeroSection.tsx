@@ -1,6 +1,8 @@
+import StatsRow from "@/components/StatsRow";
+
 function HeroSection() {
   return (
-    <section className="px-8 py-5 md:py-12 pb-0 rounded-r-2xl " id="about">
+    <section className="px-8 py-5 md:py-12 pb-0" id="about">
       <p className="text-secondary">
         Hello, I'm <span className="text-accent">software engineer</span>
       </p>
@@ -15,11 +17,12 @@ function HeroSection() {
         Addis Abeba
       </h2>
 
-      <p className="mt-6 max-w-xl  text-white">
+      <p className="mt-6 max-w- text-white">
         Have worked in a variety of positions, including as frontend and
         backend. Strong engineering background combined with closely working
         with business customers.
       </p>
+      <StatsRow />
     </section>
   );
 }

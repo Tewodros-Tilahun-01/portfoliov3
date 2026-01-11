@@ -4,6 +4,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Optimize animations for performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 aside {
   z-index: 100; /* Ensure the aside has a higher stacking context */
 }
@@ -15,7 +33,7 @@ aside {
 :root {
   /* Dark theme colors (default) */
   --bg-primary: #121416;
-  --bg-secondary: #171717;
+  --bg-secondary: #0c0c0c;
   --bg-tertiary: #181c22;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
@@ -31,6 +49,7 @@ aside {
   --scrollbar-thumb: rgba(255, 255, 255, 0.35);
   --scrollbar-thumb-hover: rgba(255, 255, 255, 0.55);
   --scrollbar-track: transparent;
+  --text-submark: #ffffffd9;
 }
 
 [data-theme="light"] {
@@ -52,6 +71,7 @@ aside {
   --scrollbar-thumb: rgba(15, 23, 42, 0.35);
   --scrollbar-thumb-hover: rgba(15, 23, 42, 0.55);
   --scrollbar-track: transparent;
+  --text-submark: #78cc6d;
 }
 
 .bg-primary {
@@ -71,6 +91,9 @@ aside {
 }
 .text-tertiary {
   color: var(--text-tertiary);
+}
+.text-submark {
+  color: var(--text-submark);
 }
 .text-accent {
   color: var(--accent-primary);

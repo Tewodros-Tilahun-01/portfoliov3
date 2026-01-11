@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 type Project = {
   id: string;
@@ -134,13 +135,17 @@ function ProjectCard({
       transition={{ duration: 0.5, ease: "easeIn" }}
     >
       <Card className="p-3 hover:shadow-lg transition-shadow ">
-        <div className="relative">
+        <div className="relative" style={{ height: imageHeight + "px" }}>
           {project.image ? (
-            <img
+            <Image
               src={project.image}
               alt={project.title}
-              style={{ height: imageHeight + "px" }}
-              className="w-full object-cover rounded-xl"
+              fill
+              className="object-cover rounded-xl"
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
             <ProjectImage title={project.title} />
