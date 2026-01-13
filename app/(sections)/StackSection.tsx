@@ -169,7 +169,7 @@ export default function StackSection() {
       className="px-4 sm:px-4 md:px-15 py-2 sm:py-8 md:py-8 pt-4"
       id="stacks"
     >
-      <FadeInView delay={0.1} className="mt-10">
+      <div className="mt-10">
         <SectionBadge>tech Stack</SectionBadge>
         <br />
         <StaggerContainer
@@ -182,9 +182,9 @@ export default function StackSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-      </FadeInView>
+      </div>
 
-      <FadeInView delay={0.2} className="mt-10">
+      <div className="mt-10">
         <Badge>General Skills</Badge>
         <StaggerContainer
           className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"
@@ -196,9 +196,9 @@ export default function StackSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-      </FadeInView>
+      </div>
 
-      <FadeInView delay={0.3} className="mt-10">
+      <div className="mt-10">
         <Badge>Languages</Badge>
         <StaggerContainer
           className="bg-transparent border-none"
@@ -210,7 +210,7 @@ export default function StackSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
-      </FadeInView>
+      </div>
     </section>
   );
 }

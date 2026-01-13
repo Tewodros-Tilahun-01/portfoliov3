@@ -174,7 +174,7 @@ export default function ResumeSection() {
       </FadeInView>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
-        <FadeInView delay={0.6} className="mt-12 grid grid-cols-1  gap-6">
+        <div className="mt-12 grid grid-cols-1  gap-6">
           <div>
             <div className="mb-4">
               <Badge>
@@ -198,9 +198,9 @@ export default function ResumeSection() {
               </StaggerContainer>
             </div>
           </div>
-        </FadeInView>
+        </div>
 
-        <FadeInView delay={0.8} className="mt-12 grid grid-cols-1  gap-6">
+        <div className="mt-12 grid grid-cols-1  gap-6">
           <div>
             <div className="mb-4">
               <Badge>
@@ -224,7 +224,7 @@ export default function ResumeSection() {
               </StaggerContainer>
             </div>
           </div>
-        </FadeInView>
+        </div>
       </div>
     </section>
   );

@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const NAV_LINKS = [
   { href: "#", label: "Home" },
   { href: "#about", label: "About" },
@@ -9,17 +13,39 @@ const NAV_LINKS = [
 
 export default function MobileNavLinks() {
   return (
-    <ul className="py-2">
-      {NAV_LINKS.map((l) => (
-        <li key={l.href}>
+    <motion.ul
+      className="py-2"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: 0.05,
+          },
+        },
+      }}
+    >
+      {NAV_LINKS.map((l, index) => (
+        <motion.li
+          key={l.href}
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.2, ease: "easeOut" },
+            },
+          }}
+        >
           <a
             href={l.href}
-            className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors "
+            className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors"
           >
             {l.label}
           </a>
-        </li>
+        </motion.li>
       ))}
-    </ul>
+    </motion.ul>
   );
 }
