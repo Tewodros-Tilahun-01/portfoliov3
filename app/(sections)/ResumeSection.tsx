@@ -7,6 +7,12 @@ import {
   Landmark,
   SchoolIcon,
 } from "lucide-react";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+  TextReveal,
+} from "@/components/animations";
 
 type TimelineItem = {
   title: string;
@@ -87,9 +93,12 @@ function TimelineColumn({
   return (
     <div className="relative">
       <div className="hidden md:block absolute left-0 right-0 top-7 h-0.5 bg-border-custom" />
-      <div className="grid gap-10 md:grid-cols-2">
+      <StaggerContainer
+        className="grid gap-10 md:grid-cols-2"
+        staggerDelay={0.3}
+      >
         {items.map((it, idx) => (
-          <div
+          <StaggerItem
             key={idx}
             className={align === "left" ? "order-1" : "order-2 md:col-start-2"}
           >
@@ -105,9 +114,9 @@ function TimelineColumn({
               {it.location.split(",")[0]} · {it.company.toUpperCase()}
             </div>
             <p className="mt-4 text-secondary leading-relaxed">{it.summary}</p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   );
 }
@@ -120,44 +129,52 @@ function InfoCard({
   icon: "course" | "edu";
 }) {
   return (
-    <Card className="p-6 relative">
-      <span className="absolute -left-[23px] top-6 rounded-full bg-gray-600 w-2.5 h-2.5"></span>
-      <div className="rounded-lg text-tertiary mb-2  px-2 py-1 border border-gray-500 max-w-min text-nowrap text-xs  ">
-        {item.range}
-      </div>
-      <div className="mt-2 flex items-center justify-between">
-        <h4 className="text-lg font-semibold text-primary capitalize">
-          {item.title}
-        </h4>
-      </div>
-      <div className="text-sm text-secondary mt-1">{item.subtitle}</div>
-      <p className="mt-4 text-secondary leading-relaxed line-clamp-4">
-        {item.body}
-      </p>
-    </Card>
+    <FadeInView>
+      <Card className="p-6 relative">
+        <span className="absolute -left-[23px] top-6 rounded-full bg-gray-600 w-2.5 h-2.5"></span>
+        <div className="rounded-lg text-tertiary mb-2  px-2 py-1 border border-gray-500 max-w-min text-nowrap text-xs  ">
+          {item.range}
+        </div>
+        <div className="mt-2 flex items-center justify-between">
+          <h4 className="text-lg font-semibold text-primary capitalize">
+            {item.title}
+          </h4>
+        </div>
+        <div className="text-sm text-secondary mt-1">{item.subtitle}</div>
+        <p className="mt-4 text-secondary leading-relaxed line-clamp-4">
+          {item.body}
+        </p>
+      </Card>
+    </FadeInView>
   );
 }
 
 export default function ResumeSection() {
   return (
     <section className="px-2 sm:px-12 md:px-10 py-4 pt-12" id="resume">
-      <div className="md:mb-6">
-        <Badge>
-          <span>
-            <Briefcase size={22} />
-          </span>
-          <span className="text-primary">Resume</span>
-        </Badge>
-      </div>
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-primary">
-        Work Experience & Education
-      </h2>
+      <FadeInView delay={0.1}>
+        <div className="md:mb-6">
+          <Badge>
+            <span>
+              <Briefcase size={22} />
+            </span>
+            <span className="text-primary">Resume</span>
+          </Badge>
+        </div>
+      </FadeInView>
 
-      <div className="mt-10">
+      <TextReveal delay={0.2}>
+        <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-primary">
+          Work Experience & Education
+        </h2>
+      </TextReveal>
+
+      <FadeInView delay={0.4} className="mt-10">
         <TimelineColumn items={experience} align="left" />
-      </div>
+      </FadeInView>
+
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
-        <div className="mt-12 grid grid-cols-1  gap-6">
+        <FadeInView delay={0.6} className="mt-12 grid grid-cols-1  gap-6">
           <div>
             <div className="mb-4">
               <Badge>
@@ -169,15 +186,21 @@ export default function ResumeSection() {
             </div>
             <div className="flex">
               <div className="min-h-full w-0.5 mt-6  rounded-full bg-divider mr-4"></div>
-              <div className="grid flex-1 gap-6">
+              <StaggerContainer
+                className="grid flex-1 gap-6"
+                staggerDelay={0.2}
+              >
                 {courses.map((c, i) => (
-                  <InfoCard key={i} item={c} icon="course" />
+                  <StaggerItem key={i}>
+                    <InfoCard item={c} icon="course" />
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
             </div>
           </div>
-        </div>
-        <div className="mt-12 grid grid-cols-1  gap-6">
+        </FadeInView>
+
+        <FadeInView delay={0.8} className="mt-12 grid grid-cols-1  gap-6">
           <div>
             <div className="mb-4">
               <Badge>
@@ -189,15 +212,19 @@ export default function ResumeSection() {
             </div>
             <div className="flex lg:ml-5">
               <div className="min-h-full w-0.5 mt-6  rounded-full bg-divider mr-4"></div>
-
-              <div className="grid flex-1 gap-6 ">
+              <StaggerContainer
+                className="grid flex-1 gap-6"
+                staggerDelay={0.2}
+              >
                 {education.map((e, i) => (
-                  <InfoCard key={i} item={e} icon="edu" />
+                  <StaggerItem key={i}>
+                    <InfoCard item={e} icon="edu" />
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
             </div>
           </div>
-        </div>
+        </FadeInView>
       </div>
     </section>
   );

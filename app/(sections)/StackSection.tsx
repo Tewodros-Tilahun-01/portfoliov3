@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   FaReact,
@@ -8,6 +7,7 @@ import {
   FaBookOpen,
   FaUsers,
   FaStar,
+  FaAngular,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -17,21 +17,31 @@ import {
   SiDocker,
   SiExpo,
   SiTailwindcss,
+  SiReactquery,
+  SiRedux,
 } from "react-icons/si";
 import type { ReactNode } from "react";
 import { Code } from "lucide-react";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations";
+import AnimatedCircularStat from "../../components/animations/AnimatedCircularStat";
+import AnimatedSkillBar from "../../components/animations/AnimatedSkillBar";
+import AnimatedLanguageRow from "../../components/animations/AnimatedLanguageRow";
 
 type Skill = {
   name: string;
   percent: number;
   icon: ReactNode;
-  color?: string; // hex or css color for rings/icons
+  color?: string;
 };
 
 type Language = {
   name: string;
   percent: number;
-  flag: string; // emoji placeholder flag
+  flag: string;
 };
 
 // Tool stack (square items with colorful rings)
@@ -49,10 +59,28 @@ const toolStack: Skill[] = [
     color: "#ffffff",
   },
   {
+    name: "Angular.js",
+    percent: 80,
+    icon: <FaAngular size={32} color="#e64e1c" />,
+    color: "#ffffff",
+  },
+  {
     name: "Tailwind",
     percent: 88,
     icon: <SiTailwindcss size={32} />,
     color: "#38bdf8",
+  },
+  {
+    name: "React Query",
+    percent: 82,
+    icon: <SiReactquery size={32} />,
+    color: "#FF4154",
+  },
+  {
+    name: "Redux Toolkit",
+    percent: 85,
+    icon: <SiRedux size={32} />,
+    color: "#764abc",
   },
   {
     name: "Node.js",
@@ -61,7 +89,7 @@ const toolStack: Skill[] = [
     color: "#6cc24a",
   },
   {
-    name: "express",
+    name: "Express",
     percent: 75,
     icon: <SiExpress size={32} />,
     color: "#ff9900",
@@ -97,7 +125,7 @@ const toolStack: Skill[] = [
     color: "#f05032",
   },
   {
-    name: "react native",
+    name: "React Native",
     percent: 72,
     icon: <FaReact size={32} />,
     color: "#0078d4",
@@ -113,61 +141,14 @@ const toolStack: Skill[] = [
 const generalSkills: Skill[] = [
   { name: "Analytical", percent: 90, icon: <FaBookOpen size={16} /> },
   { name: "Teamwork", percent: 72, icon: <FaUsers size={16} /> },
-  { name: "Leadership", percent: 65, icon: <FaStar size={16} /> },
   { name: "Learning", percent: 82, icon: <FaBookOpen size={16} /> },
+  { name: "Leadership", percent: 70, icon: <FaStar size={16} /> },
 ];
 
 const languages: Language[] = [
   { name: "Amharic", percent: 100, flag: "🇪🇹" },
   { name: "English", percent: 80, flag: "🇬🇧" },
 ];
-
-function CircularStat({ name, percent, icon, color }: Skill) {
-  const ring = {
-    background: `conic-gradient(${"#61CE78"} ${
-      percent * 3.6
-    }deg, transparent 0)`,
-  } as const;
-  return (
-    <Card className="aspect-square p-0">
-      <div className="h-full w-full flex flex-col items-center justify-center gap-1">
-        <div className="relative size-16">
-          <div className="absolute inset-0 rounded-full" style={ring} />
-          <div
-            className="absolute inset-1 p-2 rounded-full bg-tertiary flex flex-col justify-center items-center"
-            style={{ color: color }}
-          >
-            {icon}
-            <div className="text-xs text-primary relative top-1">
-              {percent}%
-            </div>
-          </div>
-        </div>
-        <div className="text-sm text-primary sm:mt-2">{name}</div>
-      </div>
-    </Card>
-  );
-}
-
-function SmallCircular({ name, percent, icon }: Skill) {
-  const meter = {
-    background: `conic-gradient(var(--accent-primary) ${
-      percent * 3.6
-    }deg, var(--border-secondary) 0)`,
-  } as const;
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="relative size-16 grid place-items-center">
-        <div className="size-14 rounded-full" style={meter} />
-        <div className="absolute size-12 rounded-full bg-tertiary grid place-items-center">
-          {icon}
-        </div>
-      </div>
-      <div className="text-xs text-secondary">{name}</div>
-      <div className="text-[10px] text-tertiary">{percent}%</div>
-    </div>
-  );
-}
 
 function SectionBadge({ children }: { children: string }) {
   return (
@@ -182,82 +163,54 @@ function SectionBadge({ children }: { children: string }) {
   );
 }
 
-function DotsProgress({
-  percent,
-  total = 10,
-}: {
-  percent: number;
-  total?: number;
-}) {
-  const filled = Math.floor((percent / 100) * total);
-  const dots = Array.from({ length: total }, (_, i) => i < filled);
-  return (
-    <div className="flex items-center gap-2">
-      {dots.map((isFilled, i) => (
-        <span
-          key={i}
-          className="inline-block size-3 rounded-full"
-          style={{
-            backgroundColor: isFilled ? "#61CE78" : "var(--border-secondary)",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function LanguageRow({ name, percent, flag }: Language) {
-  return (
-    <div className="flex  justify-between items-center px-2 gap-8 py-1 w-full max-w-md">
-      <div className="flex items-center gap-4">
-        <div className="grid place-items-center size-10 rounded-xl text-lg">
-          <span aria-hidden>{flag}</span>
-        </div>
-        <div className="text-primary">{name}</div>
-      </div>
-      <div className="flex items-center  gap-2 col-span-2">
-        <DotsProgress percent={percent} />
-        <div className="w-10 text-right text-secondary text-sm">{percent}%</div>
-      </div>
-    </div>
-  );
-}
-
-function StackSection() {
+export default function StackSection() {
   return (
     <section
       className="px-4 sm:px-4 md:px-15 py-2 sm:py-8 md:py-8 pt-4"
       id="stacks"
     >
-      <div className="mt-10">
+      <FadeInView delay={0.1} className="mt-10">
         <SectionBadge>tech Stack</SectionBadge>
         <br />
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+        <StaggerContainer
+          className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
+          staggerDelay={0.05}
+        >
           {toolStack.map((s) => (
-            <CircularStat key={s.name} {...s} />
+            <StaggerItem key={s.name}>
+              <AnimatedCircularStat {...s} />
+            </StaggerItem>
           ))}
-        </div>
-      </div>
+        </StaggerContainer>
+      </FadeInView>
 
-      <div className="mt-10">
+      <FadeInView delay={0.2} className="mt-10">
         <Badge>General Skills</Badge>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        <StaggerContainer
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"
+          staggerDelay={0.1}
+        >
           {generalSkills.map((s) => (
-            <SmallCircular key={s.name} {...s} />
+            <StaggerItem key={s.name}>
+              <AnimatedSkillBar {...s} />
+            </StaggerItem>
           ))}
-        </div>
-      </div>
+        </StaggerContainer>
+      </FadeInView>
 
-      <div className="mt-10">
+      <FadeInView delay={0.3} className="mt-10">
         <Badge>Languages</Badge>
-        <div className="bg-transparent border-none">
+        <StaggerContainer
+          className="bg-transparent border-none"
+          staggerDelay={0.1}
+        >
           {languages.map((l) => (
-            <LanguageRow key={l.name} {...l} />
+            <StaggerItem key={l.name}>
+              <AnimatedLanguageRow {...l} />
+            </StaggerItem>
           ))}
-        </div>
-      </div>
+        </StaggerContainer>
+      </FadeInView>
     </section>
   );
 }
-
-export default StackSection;

@@ -37,7 +37,7 @@ function HeroSection() {
       </TextReveal>
 
       <LineByLineReveal
-        delay={2.0}
+        delay={1.6}
         staggerDelay={0.03}
         className="text-base md:text-lg text-secondary max-w-2xl"
       >
@@ -46,7 +46,7 @@ function HeroSection() {
         with business customers.
       </LineByLineReveal>
 
-      <FadeInView delay={2.4} className="pt-4">
+      <FadeInView delay={2} className="pt-4">
         <StatsRow />
       </FadeInView>
     </section>
