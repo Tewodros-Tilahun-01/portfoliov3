@@ -64,13 +64,13 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
             <TextReveal delay={0.3}>
               <div className="text-submark uppercase ">{title}</div>
             </TextReveal>
-            <TextReveal delay={0.3}>
+            <TextReveal delay={0.6}>
               <h3 className=" text-2xl font-semibold ">{name}</h3>
             </TextReveal>
 
             <StaggerContainer
               className=" flex justify-center gap-3"
-              staggerDelay={0.2}
+              staggerDelay={0.3}
             >
               {socialLinks.map((link, i) => {
                 const Icon = link.icon;
@@ -108,7 +108,7 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
 "
         >
           <FadeInView
-            delay={0.8}
+            delay={1.0}
             className="flex justify-center py-8   mx-auto  border-gray-100 divide-x"
           >
             <ScaleOnTap>

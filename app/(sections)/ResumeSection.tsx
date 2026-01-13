@@ -18,20 +18,20 @@ type TimelineItem = {
 
 const experience: TimelineItem[] = [
   {
-    title: "University of Gondar’s ICT Directorate",
-    company: "UOG",
+    title: "front end developer",
+    company: "ALET Technologies",
+    location: "addis abeba",
+    range: "10/2025 - 12/2025",
+    summary:
+      "Delivered Angular projects, building modular, scalable front-end features and collaborating closely with backend engineers",
+  },
+  {
+    title: "full stack developer",
+    company: "University of Gondar’s ICT Directorate",
     location: "Gondar",
     range: "07/2024 – 10/2024",
     summary:
       "Built user interfaces for seamless appointment booking, focusing on accessibility and user experience with scalable, responsive design principles",
-  },
-  {
-    title: "Freelance",
-    company: "",
-    location: "remote",
-    range: "2023 – 2024",
-    summary:
-      "translates designs into functional, responsive user interfaces using HTML, CSS, and JavaScript, often leveraging frameworks like React to build interactive web pages and applications ",
   },
 ];
 
@@ -97,7 +97,9 @@ function TimelineColumn({
               {it.range}
             </div>
             <div className="flex items-center gap-3">
-              <h3 className="text-xl font-semibold text-primary">{it.title}</h3>
+              <h3 className="text-xl font-semibold text-primary capitalize">
+                {it.title}
+              </h3>
             </div>
             <div className="mt-2 text-xs uppercase tracking-wide text-tertiary">
               {it.location.split(",")[0]} · {it.company.toUpperCase()}

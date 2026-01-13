@@ -1,6 +1,5 @@
 "use client";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink, FolderGit2 } from "lucide-react";
@@ -20,11 +19,35 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    id: "Matrix",
+    title: "Matrix",
+    image: "/assets/pr1.png",
+    tags: ["frontend"],
+    primaryTag: ["Angular", "laravel"],
+
+    links: {
+      github: "",
+      live: "https://matrix.onevas.et/",
+    },
+  },
+  {
+    id: "Women's Empowerment",
+    title: "Women's Empowerment",
+    image: "/assets/pr2.png",
+    tags: ["frontend"],
+    primaryTag: ["Angular", "laravel"],
+    links: {
+      github: "",
+      live: "https://melonimiraclewomen.com/",
+    },
+  },
+
+  {
     id: "class-scheduling-software",
     title: "Class Scheduling software",
     image: "/assets/Screenshot from 2025-09-17 11-18-15.png",
-    tags: ["frontend"],
-    primaryTag: ["react"],
+    tags: ["fullstack"],
+    primaryTag: ["react", "express", "mongodb"],
     links: {
       github:
         "https://github.com/Tewodros-Tilahun-01/class-scheduling-management-system",
@@ -36,27 +59,27 @@ const PROJECTS: Project[] = [
     id: "cinaima-films",
     title: "Cinaima Films",
     image: "/assets/project1-D0-fzN-1.png",
-    tags: ["fullstack"],
-    primaryTag: ["react", "express", "mongodb"],
+    tags: ["frontend"],
+    primaryTag: ["react"],
     links: {
       github: "https://github.com/Tewodros-Tilahun-01/cinema-movie",
       live: "https://tcinema.netlify.app/",
     },
   },
-  {
-    id: "appointment-scheduling-software",
-    title: "Appointment Scheduling Software",
-    image: "/assets/project2-YbFCcYoK.png",
-    tags: ["fullstack"],
-    primaryTag: ["react", "express", "mongodb"],
-    links: {
-      live: "https://ketero-v1.vercel.app",
-      github: "https://github.com/Tewodros-Tilahun-01/ketero",
-    },
-  },
+  // {
+  //   id: "appointment-scheduling-software",
+  //   title: "Appointment Scheduling Software",
+  //   image: "/assets/project2-YbFCcYoK.png",
+  //   tags: ["fullstack"],
+  //   primaryTag: ["react", "express", "mongodb"],
+  //   links: {
+  //     live: "https://ketero-v1.vercel.app",
+  //     github: "https://github.com/Tewodros-Tilahun-01/ketero",
+  //   },
+  // },
 ];
 
-const FILTERS = ["all", "fullstack", "frontend", "backend"] as const;
+const FILTERS = ["all", "fullstack", "frontend"] as const;
 
 type Filter = (typeof FILTERS)[number];
 
@@ -125,35 +148,31 @@ function ProjectCard({
   aspectRatio?: string;
 }) {
   // Default height for first column
-  const baseHeight = 224; // h-56 = 224px
-  // Second column height is 30% bigger
+  const baseHeight = 170;
   const imageHeight = aspectRatio === "second" ? baseHeight * 1.3 : baseHeight;
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0, x: 0, y: -100 }}
-      animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeIn" }}
-    >
-      <Card className="p-3 hover:shadow-lg transition-shadow ">
+    <div>
+      <Card className="p-0 hover:shadow-lg transition-all duration-300  overflow-hidden group">
         <div className="relative" style={{ height: imageHeight + "px" }}>
           {project.image ? (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover rounded-xl"
-              loading="lazy"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+            <>
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover rounded-t-xl group-hover:scale-105 transition-all duration-300 "
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+              />
+            </>
           ) : (
             <ProjectImage title={project.title} />
           )}
         </div>
 
         <div className="px-2 py-4">
-          <div className=" flex flex-wrap gap-2 mb-4">
+          <div className=" flex flex-wrap gap-2 mb-1">
             {project.primaryTag.map((tag) => (
               <Badge
                 key={tag}
@@ -163,10 +182,10 @@ function ProjectCard({
               </Badge>
             ))}
           </div>
-          <div className="text-lg font-semibold text-primary leading-snug">
+          <div className="text-lg px-3 font-semibold text-primary leading-snug">
             {project.title}
           </div>
-          <div className="mt-3 flex items-center gap-3">
+          <div className="mt-3 px-3 flex items-center gap-3">
             <ActionLink
               href={project.links?.github}
               label="GitHub"
@@ -180,7 +199,7 @@ function ProjectCard({
           </div>
         </div>
       </Card>
-    </motion.div>
+    </div>
   );
 }
 
@@ -193,10 +212,7 @@ export default function ProjectsSection() {
   }, [filter]);
 
   return (
-    <section
-      className="px-6 sm:px-12 md:px-16 py-4 lg:pt-14 pt-12"
-      id="projects"
-    >
+    <section className="px-6 sm:px-12 md:px-16  lg:pt-14 py-14" id="projects">
       <div className="mb-4">
         <Badge>
           <span>
@@ -220,16 +236,10 @@ export default function ProjectsSection() {
         ))}
       </div>
 
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2  gap-x-10 gap-y-4">
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2  gap-x-10 gap-y-8">
         {filtered.map((p, i) => (
-          <div
-            key={p.id}
-            className={[i % 2 === 1 ? "md:row-span-6" : ""].join(" ")}
-          >
-            <ProjectCard
-              project={p}
-              aspectRatio={i % 2 === 1 ? "second" : undefined}
-            />
+          <div key={p.id}>
+            <ProjectCard project={p} />
           </div>
         ))}
       </div>
