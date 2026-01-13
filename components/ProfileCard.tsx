@@ -38,7 +38,7 @@ const socialLinks = [
 function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
   return (
     <div className="lg:sticky lg:top-8.5 max-h-min">
-      <div className="sm:rounded-3xl sm:rounded-tr-none pt-10 md:pt-0 rounded-none bg-secondary flex flex-col justify-between  ring-1 ring-primary w-full overflow-hidden max-h-min lg:min-h-[calc(100vh-50px)] bg-[linear-gradient(120deg,_rgba(255,255,255,0.08),_rgba(255,255,255,0))]">
+      <div className="sm:rounded-3xl sm:rounded-tr-none pt-10 md:pt-0 rounded-none bg-secondary flex flex-col justify-between  ring-1 ring-primary w-full overflow-hidden max-h-min lg:min-h-[calc(100vh-20%)] bg-[linear-gradient(120deg,_rgba(255,255,255,0.08),_rgba(255,255,255,0))]">
         <div className="py-7 md:px-10 px-4">
           <FadeInView
             delay={0.2}

@@ -4,6 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink, FolderGit2 } from "lucide-react";
 import Image from "next/image";
+import {
+  FadeInView,
+  StaggerContainer,
+  StaggerItem,
+  TextReveal,
+} from "@/components/animations";
 
 type Project = {
   id: string;
@@ -151,7 +157,7 @@ function ProjectCard({
   const baseHeight = 170;
   const imageHeight = aspectRatio === "second" ? baseHeight * 1.3 : baseHeight;
   return (
-    <div>
+    <FadeInView>
       <Card className="p-0 hover:shadow-lg transition-all duration-300  overflow-hidden group">
         <div className="relative" style={{ height: imageHeight + "px" }}>
           {project.image ? (
@@ -171,35 +177,47 @@ function ProjectCard({
           )}
         </div>
 
-        <div className="px-2 py-4">
-          <div className=" flex flex-wrap gap-2 mb-1">
-            {project.primaryTag.map((tag) => (
-              <Badge
-                key={tag}
-                className=" text-secondary  px-2 py-1 text-[10px]"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-          <div className="text-lg px-3 font-semibold text-primary leading-snug">
-            {project.title}
-          </div>
-          <div className="mt-3 px-3 flex items-center gap-3">
-            <ActionLink
-              href={project.links?.github}
-              label="GitHub"
-              icon={<Github className="size-4" />}
-            />
-            <ActionLink
-              href={project.links?.live}
-              label="Live"
-              icon={<ExternalLink className="size-4" />}
-            />
+        <div className="relative px-2 py-4 group overflow-hidden">
+          {/* Gradient overlay */}
+          <div
+            className="absolute inset-0 bg-gradient-to-tl from-cyan-300/30 to-transparent
+               opacity-0 group-hover:opacity-100
+               transition-opacity duration-300"
+          />
+
+          {/* Content */}
+          <div className="relative z-10">
+            <div className="flex flex-wrap gap-2 mb-1">
+              {project.primaryTag.map((tag) => (
+                <Badge
+                  key={tag}
+                  className="text-secondary px-2 py-1 text-[10px]"
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+
+            <div className="text-lg px-3 font-semibold text-primary leading-snug">
+              {project.title}
+            </div>
+
+            <div className="mt-3 px-3 flex items-center gap-3">
+              <ActionLink
+                href={project.links?.github}
+                label="GitHub"
+                icon={<Github className="size-4" />}
+              />
+              <ActionLink
+                href={project.links?.live}
+                label="Live"
+                icon={<ExternalLink className="size-4" />}
+              />
+            </div>
           </div>
         </div>
       </Card>
-    </div>
+    </FadeInView>
   );
 }
 
@@ -213,19 +231,24 @@ export default function ProjectsSection() {
 
   return (
     <section className="px-6 sm:px-12 md:px-16  lg:pt-14 py-14" id="projects">
-      <div className="mb-4">
-        <Badge>
-          <span>
-            <FolderGit2 size={22} />
-          </span>
-          <span>Projects</span>
-        </Badge>
-      </div>
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-primary uppercase">
-        Explore my projects
-      </h2>
+      <FadeInView delay={0.1}>
+        <div className="mb-4">
+          <Badge>
+            <span>
+              <FolderGit2 size={22} />
+            </span>
+            <span>Projects</span>
+          </Badge>
+        </div>
+      </FadeInView>
 
-      <div className="mt-6 flex flex-wrap gap-3">
+      <TextReveal delay={0.3}>
+        <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-primary uppercase">
+          Explore my projects
+        </h2>
+      </TextReveal>
+
+      <FadeInView delay={0.5} className="mt-6 flex flex-wrap gap-3">
         {FILTERS.map((f) => (
           <FilterChip
             key={f}
@@ -234,15 +257,18 @@ export default function ProjectsSection() {
             onClick={() => setFilter(f)}
           />
         ))}
-      </div>
+      </FadeInView>
 
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2  gap-x-10 gap-y-8">
+      <StaggerContainer
+        className="mt-8 grid grid-cols-1 lg:grid-cols-2  gap-x-10 gap-y-8"
+        staggerDelay={0.15}
+      >
         {filtered.map((p, i) => (
-          <div key={p.id}>
+          <StaggerItem key={p.id}>
             <ProjectCard project={p} />
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 }

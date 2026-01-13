@@ -205,6 +205,6 @@ section {
 /* Large screens / desktop */
 @media (min-width: 1024px) {
   section {
-    scroll-margin-top: 10px; /* large navbar */
+    scroll-margin-top: 36px; /* large navbar */
   }
 }
