@@ -121,7 +121,7 @@ export default function ContactSection() {
         </h2>
       </TextReveal>
 
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
           <InfoCard
             delay={0.6}
@@ -135,10 +135,10 @@ export default function ContactSection() {
             delay={0.7}
             icon={<Mail className="size-8" />}
             label="Email"
-            value="teddytilahun01@gmail.com"
+            value="tewodrostilahun.dev@gmail.com"
           />
         </div>
-        <div className="md:col-span-2">
+        <div className="lg:col-span-2">
           <InfoCard
             delay={0.8}
             icon={<MapPinned className="size-8" />}
@@ -211,7 +211,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-accent text-accent-secondary hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-accent disable:text-accent-secondary hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="size-4" />
             <ScaleOnTap>

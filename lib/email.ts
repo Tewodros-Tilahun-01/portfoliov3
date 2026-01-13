@@ -22,8 +22,8 @@ export async function sendContactEmail({
   try {
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: ["teddytilahun01@gmail.com"],
-      subject: `New Contact Form Message from ${name}`,
+      to: ["tewodrostilahun.dev@gmail.com"],
+      subject: `New portfolio Message from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #10b981; padding-bottom: 10px;">
