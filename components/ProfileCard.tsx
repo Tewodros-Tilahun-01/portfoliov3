@@ -116,7 +116,7 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
                 className="p-5 text-center hover:text-green-300 transition-colors font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://drive.google.com/file/d/1xSeDYIhc_8G59-gOrb_DsHl5zxDJf8HL/view?usp=sharing"
+                href="https://drive.google.com/file/d/12J1292vzD1CWfGiAdNBSnXqjOdXWlTxg/view?usp=sharing"
               >
                 Download CV
               </a>

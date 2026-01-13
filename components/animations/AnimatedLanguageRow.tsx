@@ -10,7 +10,7 @@ interface AnimatedLanguageRowProps {
 
 function DotsProgress({
   percent,
-  total = 10,
+  total = 6,
 }: {
   percent: number;
   total?: number;
