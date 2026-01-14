@@ -14,8 +14,8 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="size-15 grid place-items-center rounded-full bg-tertiary">
-        <div className="size-15" />
+      <div className="size-13 grid place-items-center rounded-full bg-tertiary">
+        <div className="size-13" />
       </div>
     );
   }
@@ -27,7 +27,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="size-15 grid place-items-center rounded-full bg-tertiary text-primary hover:bg-accent transition-colors"
+      className="size-13 grid place-items-center rounded-full bg-tertiary text-primary hover:bg-accent transition-colors"
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
     >
       {theme === "light" ? (

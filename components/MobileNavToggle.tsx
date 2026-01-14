@@ -15,7 +15,7 @@ export default function MobileNavToggle() {
       <button
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
-        className="size-15 grid place-items-center rounded-full bg-tertiary text-primary"
+        className="size-13 grid place-items-center rounded-full bg-tertiary text-primary"
       >
         {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>

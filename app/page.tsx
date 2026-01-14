@@ -17,9 +17,9 @@ export default function Home() {
 
       {/* Hidden content for SEO */}
       <div className="sr-only">
-        <h1>Teddy Tilahun - Full Stack Developer in Ethiopia</h1>
+        <h1>tewodros Tilahun - Full Stack Developer in Ethiopia</h1>
         <p>
-          Professional software developer specializing in React, Next.js,
+          Professional software developer specializing in Frontend, Next.js,
           Node.js, JavaScript, TypeScript, MongoDB, and mobile app development.
           Based in Addis Ababa, Ethiopia. Available for freelance projects,
           consulting, and full-time opportunities.
@@ -27,7 +27,7 @@ export default function Home() {
         <address>
           Addis Ababa, Ethiopia
           <br />
-          Email: teddytilahun01@gmail.com
+          Email: tewodrostilahun.dev@gmail.com
           <br />
           Phone: +251 987 130 441
         </address>
