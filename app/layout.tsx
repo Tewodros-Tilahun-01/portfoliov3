@@ -114,7 +114,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Tewodros Tilahun",
-              alternateName: "teddy",
+              alternateName: "Teddy_",
               jobTitle: "Full Stack Developer",
               description:
                 "Professional Full Stack Developer specializing in React, Next.js, Node.js, and mobile app development",
@@ -181,7 +181,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <div className="min-h-dvh relative text-primary  cursor-crosshair w-full">
+          <div className="min-h-dvh relative text-primary  cursor-text w-full">
             <ThemeVideo />
             <MobileNav />
 

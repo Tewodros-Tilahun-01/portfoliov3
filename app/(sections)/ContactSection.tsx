@@ -211,7 +211,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-accent disable:text-accent-secondary hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-2 cursor-pointer h-11 px-5 rounded-full bg-accent disable:text-accent-secondary hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="size-4" />
             <ScaleOnTap>

@@ -85,7 +85,7 @@ function ProfileCard({ name, title, avatarUrl }: ProfileCardProps) {
                         title={link.name}
                         className="size-10 grid place-items-center rounded-2xl ring ring-gray-400  transition-colors hover:bg-primary  hover:text-secondary "
                       >
-                        <Icon className="size-5 fill-[var(--icon-color)] stroke-[var(--icon-color)]" />
+                        <Icon className="size-5 fill-[var(--icon-color)] stroke-[var(--icon-color)] hover:fill-cyan-300 hover:stroke-cyan-300 transition-all duration-300 " />
                       </a>
                     </ScaleOnTap>
                   </StaggerItem>
