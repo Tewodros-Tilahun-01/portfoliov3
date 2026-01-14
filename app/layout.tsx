@@ -19,9 +19,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tewodrostilahun.vercel.app"),
-  title: "teddy - Full Stack Developer | React & Node.js Expert in Ethiopia",
+  title:
+    "tewodros tilahun - Full Stack Developer | React & Node.js Expert in Ethiopia",
   description:
-    "tewodros Tilahun - Professional Full Stack Developer specializing in React, Next.js, Node.js, and mobile app development. Based in Addis Ababa, Ethiopia. Available for software development projects and consulting.",
+    "Professional Full Stack Developer specializing in React, Next.js, Node.js, and mobile app development. Based in Addis Ababa, Ethiopia. Available for software development projects and consulting.",
   keywords: [
     "tewodros Tilahun",
     "Full Stack Developer Ethiopia",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     "MongoDB Developer",
     "Express.js Developer",
   ],
-  authors: [{ name: "Tewodros Tilahun (tewodros)" }],
+  authors: [{ name: "Tewodros Tilahun (teddy)" }],
   creator: "Tewodros Tilahun",
   publisher: "tewodros Portfolio",
   robots: {
@@ -64,25 +65,24 @@ export const metadata: Metadata = {
     url: "https://tewodrostilahun.vercel.app",
     siteName: "https://tewodrostilahun.vercel.app",
     title:
-      "tewodros - Full Stack Developer | React & Node.js Expert in Ethiopia",
+      "tewodros tilahun - Full Stack Developer | React & Node.js Expert in Ethiopia",
     description:
       "Professional Full Stack Developer specializing in React, Next.js, Node.js, and mobile app development. Based in Addis Ababa, Ethiopia.",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/assets/show.png",
         width: 1200,
         height: 630,
-        alt: "tewodros Tilahun - Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "tewodros - Full Stack Developer | React & Node.js Expert in Ethiopia",
+      "tewodros tilahun - Full Stack Developer | React & Node.js Expert in Ethiopia",
     description:
       "Professional Full Stack Developer specializing in React, Next.js, Node.js, and mobile app development. Based in Addis Ababa, Ethiopia.",
-    images: ["/favicon.ico"],
+    images: ["/assets/show.png"],
     creator: "@tewodrostilahun",
   },
   alternates: {
@@ -114,12 +114,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Tewodros Tilahun",
-              alternateName: "Teddy_",
+              alternateName: "Teddy",
               jobTitle: "Full Stack Developer",
               description:
                 "Professional Full Stack Developer specializing in React, Next.js, Node.js, and mobile app development",
               url: "https://tewodrostilahun.vercel.app",
-              image: "https://tewodrostilahun.vercel.app/favicon.ico",
+              image: "https://tewodrostilahun.vercel.app/assets/show.png",
               sameAs: [
                 "https://github.com/tewodros-tilahun-01",
                 "https://www.linkedin.com/in/tewodros--tilahun/",
