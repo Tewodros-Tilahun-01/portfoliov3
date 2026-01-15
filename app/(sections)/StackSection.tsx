@@ -3,7 +3,6 @@ import {
   FaReact,
   FaServer,
   FaGitAlt,
-  FaBox,
   FaBookOpen,
   FaUsers,
   FaStar,
@@ -19,6 +18,7 @@ import {
   SiTailwindcss,
   SiReactquery,
   SiRedux,
+  SiNestjs,
 } from "react-icons/si";
 import type { ReactNode } from "react";
 import { Code } from "lucide-react";
@@ -47,7 +47,7 @@ type Language = {
 // Tool stack (square items with colorful rings)
 const toolStack: Skill[] = [
   {
-    name: "React",
+    name: "React.js",
     percent: 90,
     icon: <FaReact size={32} />,
     color: "#61dafb",
@@ -95,17 +95,18 @@ const toolStack: Skill[] = [
     color: "#ff9900",
   },
   {
+    name: "Nest.js",
+    percent: 74,
+    icon: <SiNestjs size={32} />,
+    color: "#EA2845",
+  },
+  {
     name: "PostgreSQL",
     percent: 80,
     icon: <SiPostgresql size={32} />,
     color: "#336791",
   },
-  {
-    name: "Prisma",
-    percent: 74,
-    icon: <FaBox size={32} />,
-    color: "#2d3748",
-  },
+
   {
     name: "MongoDB",
     percent: 78,
