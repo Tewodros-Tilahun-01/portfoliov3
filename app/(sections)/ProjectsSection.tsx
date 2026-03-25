@@ -25,6 +25,17 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    id: "filtech",
+    title: "filtech.et",
+    image: "/assets/pr3.png",
+    tags: ["frontend"],
+    primaryTag: ["Angular"],
+    links: {
+      live: "https://filtech.et",
+      github: "",
+    },
+  },
+  {
     id: "Matrix",
     title: "Matrix",
     image: "/assets/pr1.png",
@@ -62,8 +73,8 @@ const PROJECTS: Project[] = [
   },
 
   {
-    id: "cinaima-films",
-    title: "Cinaima Films",
+    id: "cinema-films",
+    title: "Cinema Films",
     image: "/assets/project1-D0-fzN-1.png",
     tags: ["frontend"],
     primaryTag: ["react"],
@@ -72,17 +83,6 @@ const PROJECTS: Project[] = [
       live: "https://tcinema.netlify.app/",
     },
   },
-  // {
-  //   id: "appointment-scheduling-software",
-  //   title: "Appointment Scheduling Software",
-  //   image: "/assets/project2-YbFCcYoK.png",
-  //   tags: ["fullstack"],
-  //   primaryTag: ["react", "express", "mongodb"],
-  //   links: {
-  //     live: "https://ketero-v1.vercel.app",
-  //     github: "https://github.com/Tewodros-Tilahun-01/ketero",
-  //   },
-  // },
 ];
 
 const FILTERS = ["all", "fullstack", "frontend"] as const;
