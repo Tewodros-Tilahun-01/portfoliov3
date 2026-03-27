@@ -48,92 +48,92 @@ type Language = {
 const toolStack: Skill[] = [
   {
     name: "React.js",
-    percent: 90,
+    percent: 100,
     icon: <FaReact size={32} />,
     color: "#61dafb",
   },
   {
     name: "Next.js",
-    percent: 85,
+    percent: 100,
     icon: <SiNextdotjs size={32} />,
     color: "#ffffff",
   },
   {
     name: "Angular.js",
-    percent: 80,
+    percent: 100,
     icon: <FaAngular size={32} color="#e64e1c" />,
     color: "#ffffff",
   },
   {
     name: "Tailwind",
-    percent: 88,
+    percent: 100,
     icon: <SiTailwindcss size={32} />,
     color: "#38bdf8",
   },
   {
     name: "React Query",
-    percent: 82,
+    percent: 100,
     icon: <SiReactquery size={32} />,
     color: "#FF4154",
   },
   {
     name: "Redux Toolkit",
-    percent: 85,
+    percent: 100,
     icon: <SiRedux size={32} />,
     color: "#764abc",
   },
   {
     name: "Node.js",
-    percent: 82,
+    percent: 100,
     icon: <FaServer size={32} />,
     color: "#6cc24a",
   },
   {
     name: "Express",
-    percent: 75,
+    percent: 100,
     icon: <SiExpress size={32} />,
     color: "#ff9900",
   },
   {
     name: "Nest.js",
-    percent: 74,
+    percent: 100,
     icon: <SiNestjs size={32} />,
     color: "#EA2845",
   },
   {
     name: "PostgreSQL",
-    percent: 80,
+    percent: 100,
     icon: <SiPostgresql size={32} />,
     color: "#336791",
   },
 
   {
     name: "MongoDB",
-    percent: 78,
+    percent: 100,
     icon: <SiMongodb size={32} />,
     color: "#10aa50",
   },
   {
     name: "Docker",
-    percent: 76,
+    percent: 100,
     icon: <SiDocker size={32} />,
     color: "#2496ed",
   },
   {
     name: "Git",
-    percent: 84,
+    percent: 100,
     icon: <FaGitAlt size={32} />,
     color: "#f05032",
   },
   {
     name: "React Native",
-    percent: 72,
+    percent: 100,
     icon: <FaReact size={32} />,
     color: "#0078d4",
   },
   {
     name: "Expo",
-    percent: 78,
+    percent: 100,
     icon: <SiExpo size={32} />,
     color: "#ffffff",
   },
@@ -177,9 +177,9 @@ export default function StackSection() {
           className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
           staggerDelay={0.05}
         >
-          {toolStack.map((s) => (
+          {toolStack.map((s, index) => (
             <StaggerItem key={s.name}>
-              <AnimatedCircularStat {...s} />
+              <AnimatedCircularStat {...s} index={index} />
             </StaggerItem>
           ))}
         </StaggerContainer>

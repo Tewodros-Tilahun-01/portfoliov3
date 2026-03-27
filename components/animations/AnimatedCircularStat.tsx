@@ -9,6 +9,7 @@ interface AnimatedCircularStatProps {
   percent: number;
   icon: ReactNode;
   color?: string;
+  index: number;
 }
 
 export default function AnimatedCircularStat({
@@ -16,6 +17,7 @@ export default function AnimatedCircularStat({
   percent,
   icon,
   color,
+  index,
 }: AnimatedCircularStatProps) {
   return (
     <motion.div
@@ -38,7 +40,11 @@ export default function AnimatedCircularStat({
                 }deg, transparent 0)`,
               }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+              transition={{
+                duration: 1.2,
+                ease: "easeOut",
+                delay: 0.12 * index,
+              }}
             />
             <div
               className="absolute inset-1 p-2 rounded-full bg-tertiary flex flex-col justify-center items-center"
@@ -51,9 +57,7 @@ export default function AnimatedCircularStat({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 1.0, duration: 0.4 }}
-              >
-                {percent}%
-              </motion.div>
+              ></motion.div>
             </div>
           </div>
           <motion.div
