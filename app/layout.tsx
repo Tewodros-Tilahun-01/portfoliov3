@@ -3,6 +3,7 @@ import "./globals.css";
 import MobileNav from "../components/MobileNav";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import ThemeVideo from "../components/ThemeVideo";
+import PageLayout from "../components/PageLayout";
 
 import { Plus_Jakarta_Sans, Poppins } from "next/font/google";
 
@@ -181,11 +182,10 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <div className="min-h-dvh relative text-primary  cursor-text w-full">
+          <div className="min-h-dvh relative text-primary cursor-text w-full">
             <ThemeVideo />
             <MobileNav />
-
-            {children}
+            <PageLayout>{children}</PageLayout>
           </div>
         </ThemeProvider>
       </body>
