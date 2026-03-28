@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import {
   Github,
   ExternalLink,
@@ -12,6 +11,7 @@ import {
   ArrowLeft,
   Calendar,
   User,
+  Loader2,
 } from "lucide-react";
 import { getProjectById } from "@/lib/projects-data";
 import {
@@ -28,6 +28,7 @@ export default function ProjectDetailPage() {
   const project = getProjectById(projectId);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(true);
 
   if (!project) {
     return (
@@ -53,11 +54,20 @@ export default function ProjectDetailPage() {
   const hasMultipleImages = images.length > 1;
 
   const nextImage = () => {
+    setImageLoading(true);
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
   const prevImage = () => {
+    setImageLoading(true);
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleImageClick = (index: number) => {
+    if (index !== currentImageIndex) {
+      setImageLoading(true);
+      setCurrentImageIndex(index);
+    }
   };
 
   return (
@@ -79,13 +89,24 @@ export default function ProjectDetailPage() {
           <FadeInView delay={0.2}>
             <div className="p-0 mb-6 overflow-hidden rounded-md ">
               <div className={`relative aspect-video `}>
+                {/* Loading Spinner */}
+                {imageLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-tertiary z-10">
+                    <Loader2 className="size-8 text-accent animate-spin" />
+                  </div>
+                )}
+
                 {images.length > 0 && (
                   <Image
+                    key={currentImageIndex}
                     src={images[currentImageIndex]}
                     alt={`${project.title} - Image ${currentImageIndex + 1}`}
                     fill
-                    className="object-contain"
-                    priority
+                    className={`object-contain transition-opacity duration-300 ${
+                      imageLoading ? "opacity-0" : "opacity-100"
+                    }`}
+                    onLoad={() => setImageLoading(false)}
+                    priority={currentImageIndex === 0}
                   />
                 )}
               </div>
@@ -98,7 +119,7 @@ export default function ProjectDetailPage() {
                     {images.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentImageIndex(index)}
+                        onClick={() => handleImageClick(index)}
                         className={`h-2 rounded-full transition-all ${
                           index === currentImageIndex
                             ? "bg-accent w-8"
