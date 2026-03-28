@@ -88,7 +88,7 @@ function ProjectCard({
   return (
     <FadeInView>
       <Card
-        className="p-0 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer"
+        className="p-0 shadow-lg hover:shadow-2xl  transition-all duration-300 overflow-hidden group cursor-pointer"
         onClick={onClick}
       >
         <div className="relative " style={{ height: imageHeight + "px" }}>
@@ -183,7 +183,7 @@ export default function ProjectsSection() {
         </h2>
       </TextReveal>
 
-      <FadeInView delay={0.5} className="mt-6 flex flex-wrap gap-3">
+      {/* <FadeInView delay={0.5} className="mt-6 flex flex-wrap gap-3">
         {FILTERS.map((f) => (
           <FilterChip
             key={f}
@@ -192,7 +192,7 @@ export default function ProjectsSection() {
             onClick={() => setFilter(f)}
           />
         ))}
-      </FadeInView>
+      </FadeInView> */}
 
       <StaggerContainer
         className="mt-8 grid grid-cols-1 lg:grid-cols-2  gap-x-10 gap-y-8"

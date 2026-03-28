@@ -27,7 +27,7 @@ const experience: TimelineItem[] = [
     title: "front end developer",
     company: "ALET Technologies",
     location: "addis abeba",
-    range: "10/2025 - 12/2025",
+    range: "10/2025 - 01/2026",
     summary:
       "Delivered Angular projects, building modular, scalable front-end features and collaborating closely with backend engineers",
   },

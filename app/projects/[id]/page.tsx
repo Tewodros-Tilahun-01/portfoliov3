@@ -23,6 +23,7 @@ import {
 export default function ProjectDetailPage() {
   const params = useParams();
   const router = useRouter();
+
   const projectId = params.id as string;
   const project = getProjectById(projectId);
 
@@ -76,55 +77,63 @@ export default function ProjectDetailPage() {
 
           {/* Image Gallery */}
           <FadeInView delay={0.2}>
-            <Card className="p-0 mb-6 overflow-hidden rounded-md">
-              <div className="relative aspect-video bg-tertiary">
+            <div className="p-0 mb-6 overflow-hidden rounded-md ">
+              <div className={`relative aspect-video `}>
                 {images.length > 0 && (
                   <Image
                     src={images[currentImageIndex]}
                     alt={`${project.title} - Image ${currentImageIndex + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     priority
                   />
                 )}
-
-                {/* Navigation Arrows */}
-                {hasMultipleImages && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-colors backdrop-blur-sm"
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeft className="size-6 text-white" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-colors backdrop-blur-sm"
-                      aria-label="Next image"
-                    >
-                      <ChevronRight className="size-6 text-white" />
-                    </button>
-
-                    {/* Image Indicators */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {images.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentImageIndex(index)}
-                          className={`h-2 rounded-full transition-all ${
-                            index === currentImageIndex
-                              ? "bg-white w-8"
-                              : "bg-white/50 hover:bg-white/75 w-2"
-                          }`}
-                          aria-label={`Go to image ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
               </div>
-            </Card>
+
+              {/* Navigation Controls - Below Image */}
+              {hasMultipleImages && (
+                <div className="flex items-center justify-between px-4 py-3 bg-tertiary/50">
+                  {/* Image Indicators - Left/Center */}
+                  <div className="flex gap-2 flex-1 justify-center">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`h-2 rounded-full transition-all ${
+                          index === currentImageIndex
+                            ? "bg-accent w-8"
+                            : "bg-op  w-2"
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Navigation Buttons - Right */}
+                  <div className="flex items-center gap-2">
+                    <div className="px-3 py-1 rounded-lg bg-tertiary text-secondary text-sm font-medium">
+                      {currentImageIndex + 1} / {images.length}
+                    </div>
+                    <div className="flex gap-1">
+                      <button
+                        onClick={prevImage}
+                        className="p-2 rounded-lg bg-tertiary text-primary hover:bg-accent hover:text-accent-secondary transition-all"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="size-4" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="p-2 rounded-lg bg-tertiary text-primary hover:bg-accent hover:text-accent-secondary transition-all"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="size-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </FadeInView>
 
           {/* Project Title & Meta Info */}
@@ -135,7 +144,7 @@ export default function ProjectDetailPage() {
               </h1>
             </FadeInView>
 
-            <FadeInView delay={0.4}>
+            <FadeInView delay={0.3}>
               <div className="flex flex-wrap gap-4 text-secondary">
                 {project.role && (
                   <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-tertiary">
@@ -157,7 +166,7 @@ export default function ProjectDetailPage() {
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Technologies */}
-              <FadeInView delay={0.5}>
+              <FadeInView delay={0.4}>
                 <div>
                   <h2 className="text-2xl font-bold text-primary mb-4">
                     Technologies
@@ -176,7 +185,7 @@ export default function ProjectDetailPage() {
               </FadeInView>
 
               {/* Description */}
-              <FadeInView delay={0.6}>
+              <FadeInView delay={0.5}>
                 <div>
                   <h2 className="text-2xl font-bold text-primary mb-4">
                     About this project
@@ -189,7 +198,7 @@ export default function ProjectDetailPage() {
 
               {/* Features */}
               {project.features && project.features.length > 0 && (
-                <FadeInView delay={0.7}>
+                <FadeInView delay={0.6}>
                   <div>
                     <h2 className="text-2xl font-bold text-primary mb-4">
                       Key Features
@@ -213,7 +222,7 @@ export default function ProjectDetailPage() {
 
             {/* Sidebar - Links */}
             <div className="lg:col-span-1">
-              <FadeInView delay={0.8}>
+              <FadeInView delay={0.7}>
                 <div className="space-y-4">
                   {project.links?.live && (
                     <a

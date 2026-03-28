@@ -37,7 +37,7 @@ export default function AnimatedSkillBar({
           />
         </div>
         <span className="text-sm text-secondary w-10 text-right">
-          {percent}%
+          {/* {percent}% */}
         </span>
       </div>
     </motion.div>
