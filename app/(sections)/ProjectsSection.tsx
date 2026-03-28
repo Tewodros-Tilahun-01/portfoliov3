@@ -88,7 +88,7 @@ function ProjectCard({
   return (
     <FadeInView>
       <Card
-        className="p-0 shadow-lg hover:shadow-2xl  transition-all duration-300 overflow-hidden group cursor-pointer"
+        className="p-3 shadow-sm hover:shadow-2xl  transition-all duration-300 overflow-hidden group cursor-pointer"
         onClick={onClick}
       >
         <div className="relative " style={{ height: imageHeight + "px" }}>
@@ -98,7 +98,7 @@ function ProjectCard({
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover rounded-t-xl group-hover:scale-105 transition-all duration-300"
+                className="object-cover rounded-lg group-hover:scale-105 transition-all duration-300"
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="

@@ -1,3 +1,6 @@
+"use client";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Info, Briefcase, Code, FolderGit2, Mail } from "lucide-react";
 import FadeInView from "./animations/FadeInView";
@@ -5,13 +8,27 @@ import StaggerContainer from "./animations/StaggerContainer";
 import StaggerItem from "./animations/StaggerItem";
 
 function Sidebar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const items = [
-    { id: "#about", label: "About", icon: <Info size={24} /> },
-    { id: "#resume", label: "Resume", icon: <Briefcase size={24} /> },
-    { id: "#stacks", label: "Stacks", icon: <Code size={24} /> },
-    { id: "#projects", label: "Projects", icon: <FolderGit2 size={24} /> },
-    { id: "#contact", label: "Contact", icon: <Mail size={24} /> },
+    { id: "about", label: "About", icon: <Info size={24} /> },
+    { id: "resume", label: "Resume", icon: <Briefcase size={24} /> },
+    { id: "stacks", label: "Stacks", icon: <Code size={24} /> },
+    { id: "projects", label: "Projects", icon: <FolderGit2 size={24} /> },
+    { id: "contact", label: "Contact", icon: <Mail size={24} /> },
   ];
+
+  const handleNavigation = (id: string) => {
+    if (isHomePage) {
+      // On home page, just scroll to section
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // On other pages, navigate to home page with hash
+      window.location.href = `/#${id}`;
+    }
+  };
 
   return (
     <aside className="hidden max-w-10 mx-3 md:flex gap-y-4 flex-col justify-center max-h-min items-center pt-4 sticky top-24">
@@ -25,13 +42,23 @@ function Sidebar() {
       >
         {items.map((item) => (
           <StaggerItem key={item.id} className="relative group">
-            <a
-              aria-label={item.label}
-              href={item.id}
-              className="size-12 grid place-items-center rounded-full  text-primary bg-[#ffffff08]  transition-colors"
-            >
-              <span className="group-hover:text-green-400">{item.icon}</span>
-            </a>
+            {isHomePage ? (
+              <a
+                aria-label={item.label}
+                href={`#${item.id}`}
+                className="size-12 grid place-items-center rounded-full  text-primary bg-[#ffffff08]  transition-colors"
+              >
+                <span className="group-hover:text-green-400">{item.icon}</span>
+              </a>
+            ) : (
+              <Link
+                aria-label={item.label}
+                href={`/#${item.id}`}
+                className="size-12 grid place-items-center rounded-full  text-primary bg-[#ffffff08]  transition-colors"
+              >
+                <span className="group-hover:text-green-400">{item.icon}</span>
+              </Link>
+            )}
             <span className="pointer-events-none bg-green-400 text-[#323232] font-medium  absolute left-full ml-1 top-1/2 -translate-y-1/2 rounded-2xl border border-custom  px-3 py-1 text-sm  opacity-0 translate-x-1 scale-95 whitespace-nowrap transition-all duration-500 ease-out group-hover:opacity-100    group-hover:translate-x-0    group-hover:scale-100">
               {item.label}
             </span>

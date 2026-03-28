@@ -1,17 +1,22 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const NAV_LINKS = [
-  { href: "#", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#resume", label: "Resume" },
-  { href: "#stacks", label: "Stacks" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#resume", label: "Resume" },
+  { href: "/#stacks", label: "Stacks" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function MobileNavLinks() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   return (
     <motion.ul
       className="py-2"
@@ -38,12 +43,21 @@ export default function MobileNavLinks() {
             },
           }}
         >
-          <a
-            href={l.href}
-            className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors"
-          >
-            {l.label}
-          </a>
+          {isHomePage && l.href.startsWith("/#") ? (
+            <a
+              href={l.href}
+              className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors"
+            >
+              {l.label}
+            </a>
+          ) : (
+            <Link
+              href={l.href}
+              className="block px-4 py-3 text-primary hover:bg-accent hover:text-accent-secondary transition-colors"
+            >
+              {l.label}
+            </Link>
+          )}
         </motion.li>
       ))}
     </motion.ul>

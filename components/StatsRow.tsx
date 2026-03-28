@@ -8,7 +8,7 @@ interface Stat {
 }
 
 const defaultStats: Stat[] = [
-  { value: "5", label: "Completed", sublabel: " Projects" },
+  { value: "7", label: "Completed", sublabel: " Projects" },
   { value: "2", label: "Years of", sublabel: " Experience" },
   {
     value: "4",

@@ -180,6 +180,62 @@ export const PROJECTS: Project[] = [
       live: "https://tcinema.netlify.app/",
     },
   },
+  {
+    id: "zema",
+    title: "Zema - Music Streaming App",
+    description: "Modern React Native music streaming application",
+    fullDescription:
+      "A modern React Native music streaming application built with Expo, featuring offline playback, playlist management, and a beautiful UI. Stream music from Deezer API with dark mode support, offline downloads, and dynamic theme colors from album artwork.",
+    image: "/assets/iconz.png",
+    images: ["/assets/z1.png", "/assets/z2.png"],
+    tags: ["mobile"],
+    primaryTag: ["react-native", "expo", "typescript"],
+    role: "Full Stack Developer",
+    date: "2024",
+    features: [
+      "Stream music from Deezer API",
+      "Beautiful UI with dark mode support",
+      "Offline downloads and playback",
+      "Create and manage playlists",
+      "Advanced search (tracks, artists, playlists)",
+      "Audio player with background playback",
+      "Recently played tracks",
+      "Favorites collection",
+      "Dynamic theme colors from album artwork",
+    ],
+    links: {
+      github: "https://github.com/Tewodros-Tilahun-01/zema",
+      live: "https://github.com/Tewodros-Tilahun-01/zema/releases/download/v1.0.0/zema.apk",
+    },
+  },
+  {
+    id: "guess-the-flag",
+    title: "Guess the Flag",
+    description: "Fun geography game with multiplayer LAN support",
+    fullDescription:
+      "A fun and educational mobile game where players test their geography knowledge by identifying country flags. Features both single-player and multiplayer modes with LAN support. Built with React Native and Expo, featuring TCP-based multiplayer, QR code sharing, and customizable game settings.",
+    image: "/assets/icon.png",
+    images: ["/assets/icon.png"],
+    tags: ["mobile", "game"],
+    primaryTag: ["react-native", "expo", "typescript"],
+    role: "Full Stack Developer",
+    date: "2024",
+    features: [
+      "Single player and multiplayer (LAN) modes",
+      "Customizable settings (questions, time, difficulty)",
+      "Real-time competition with live timer",
+      "TCP server/client for LAN multiplayer",
+      "QR code sharing for easy game joining",
+      "Hotspot support - no internet required",
+      "Score tracking with detailed results",
+      "SQLite database for country data",
+      "Player management and disconnect handling",
+    ],
+    links: {
+      github: "https://github.com/Tewodros-Tilahun-01/Guess-the-Flag",
+      live: "https://github.com/Tewodros-Tilahun-01/Guess-the-Flag/releases/download/v1.0.0/guess.the.flag.apk",
+    },
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {
