@@ -31,7 +31,7 @@ function Sidebar() {
   };
 
   return (
-    <aside className="hidden max-w-10 mx-3 md:flex gap-y-4 flex-col justify-center max-h-min items-center pt-4 sticky top-24">
+    <aside className="hidden max-w-10 mx-3 md:flex gap-y-4 flex-col justify-start max-h-min items-center pt-4 sticky top-24 self-start">
       <FadeInView delay={0.1}>
         <ThemeToggle />
       </FadeInView>

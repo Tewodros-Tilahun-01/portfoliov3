@@ -12,7 +12,7 @@ export default function PageLayout({
       <div className="hidden md:block">
         <CustomCursor />
       </div>
-      <div className="relative grid gap-y-4 gap-x-3 grid-cols-1 md:grid-cols-[88px_1fr] lg:grid-cols-[auto_2fr_5fr] md:px-4">
+      <div className="relative grid gap-y-4 gap-x-3 grid-cols-1 md:grid-cols-[88px_1fr] lg:grid-cols-[auto_2fr_5fr] md:px-4 items-start">
         <Sidebar />
         <ProfileCard
           name="Tewodros Tilahun"
