@@ -21,7 +21,7 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: LinkedInIcon,
-    url: "https://www.linkedin.com/in/tewodros--tilahun/",
+    url: "",
   },
   {
     name: "Telegram",
